@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHMAD FIRAS MUJTAHID — Graphic Designer</title>
+  
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Explore the creative archive of Ahmad Firas Mujahid. Specializing in luxury visual identity, 3D environments, and bespoke digital assets for ambitious global brands.">
+  <meta property="og:title" content="AHMAD FIRAS MUJTAHID — Graphic Designer">
+  <meta property="og:description" content="Minimal, bold, and timeless digital design and visual identity.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahmad Firas Mujtahid",
+    "jobTitle": "Graphic Designer",
+    "url": "https://afirasm.design",
+    "sameAs": ["https://twitter.com", "https://instagram.com", "https://linkedin.com"],
+    "knowsAbout": ["Branding", "Logo Design", "Motion Graphics", "3D Blender", "UI/UX Design"]
+  }
+  </script>
+
+  <!-- Google Fonts: Syne (Nohemi alternative) & Plus Jakarta Sans (Geist alternative) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CORE VARIABLES & RESET
+       ========================================================================== */
+    :root {
+      --bg: #080808;
+      --fg: #f4f4f6;
+      --muted: #55555d;
+      --border: rgba(255, 255, 255, 0.12);
+      --accent: #bbe0ff;
+      
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --container-pad: clamp(1.5rem, 5vw, 6rem);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* Custom Cursor */
+    @media (pointer: fine) {
+      body { cursor: none; }
+      a, button, .interactive { cursor: none; }
+    }
+
+    .cursor-dot, .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      transition: opacity 0.3s ease, transform 0.15s var(--ease-out-expo);
+    }
+
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent);
+      border-radius: 50%;
+    }
+
+    .cursor-ring {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(187, 224, 255, 0.4);
+      border-radius: 50%;
+      transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), background-color 0.4s var(--ease-out-expo), border-color 0.4s ease;
+    }
+
+    .cursor-hover .cursor-ring {
+      width: 70px;
+      height: 70px;
+      background-color: rgba(187, 224, 255, 0.08);
+      border-color: var(--accent);
+    }
+
+    /* Utility & Layout */
+    .container {
+      width: 100%;
+      padding: 0 var(--container-pad);
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+
+    .grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2rem;
+    }
+
+    .sub-meta {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    /* ==========================================================================
+       2. NAVIGATION
+       ========================================================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem var(--container-pad);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      mix-blend-mode: difference;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .logo-img {
+      height: 120px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: var(--accent);
+      transition: width 0.4s var(--ease-out-expo);
+    }
+
+    .nav-links a:hover::after, .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* ==========================================================================
+       3. HERO SECTION
+       ========================================================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 8vh;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      top: 20%;
+      right: 10%;
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(187, 224, 255, 0.04) 0%, rgba(0,0,0,0) 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 11vw, 12rem);
+      font-weight: 800;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4rem;
+    }
+
+    .hero-title span {
+      display: block;
+      overflow: hidden;
+    }
+
+    .hero-title .line-inner {
+      display: block;
+      transform: translateY(110%);
+      transition: transform 1.4s var(--ease-out-expo);
+    }
+
+    .loaded .hero-title .line-inner {
+      transform: translateY(0);
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 2rem;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+    }
+
+    .hero-statement {
+      max-width: 450px;
+      font-size: 1.125rem;
+      color: var(--fg);
+      font-weight: 300;
+    }
+
+    .hero-meta {
+      text-align: right;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* ==========================================================================
+       4. FEATURED PROJECTS (ASMAGAZINE GRID)
+       ========================================================================== */
+    .section {
+      padding: 12vh 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 8vh;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .project-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--fg);
+      margin-bottom: 8vh;
+    }
+
+    .project-card:nth-child(even) {
+      margin-top: 12vh; /* Asymmetrical offset */
+    }
+
+    .project-image-wrap {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background-color: #111;
+      margin-bottom: 1.5rem;
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path 1.4s var(--ease-out-expo);
+    }
+
+    .project-card.is-revealed .project-image-wrap {
+      clip-path: inset(0 0 0 0);
+    }
+
+    .project-image-wrap.portrait {
+      aspect-ratio: 3 / 4;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(80%) contrast(110%);
+      transform: scale(1.08);
+      transition: filter 0.8s ease, transform 1.4s var(--ease-out-expo);
+    }
+
+    .project-card:hover .project-image {
+      filter: grayscale(0%) contrast(100%);
+      transform: scale(1);
+    }
+
+    .project-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      transition: color 0.3s ease;
+    }
+
+    .project-card:hover .project-name {
+      color: var(--accent);
+    }
+
+    .project-category {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* Grid layout modifiers for projects */
+    .col-span-8 { grid-column: span 8; }
+    .col-span-6 { grid-column: span 6; }
+    .col-span-4 { grid-column: span 4; }
+    .col-start-5 { grid-column-start: 5; }
+    .col-start-7 { grid-column-start: 7; }
+
+    @media (max-width: 900px) {
+      .col-span-8, .col-span-6, .col-span-4, .col-start-5, .col-start-7 {
+        grid-column: span 12;
+      }
+      .project-card:nth-child(even) { margin-top: 0; }
+    }
+
+    /* ==========================================================================
+       5. SELECTED WORKS (MAGAZINE LIST)
+       ========================================================================== */
+    .works-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr 1fr;
+      align-items: center;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--fg);
+      position: relative;
+      transition: padding 0.4s var(--ease-out-expo), background-color 0.4s ease;
+    }
+
+    .work-item:hover {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    .work-num {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .work-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      transition: color 0.3s ease;
+    }
+
+    .work-item:hover .work-title {
+      color: var(--accent);
+    }
+
+    .work-role {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .work-year {
+      font-size: 0.875rem;
+      color: var(--fg);
+      text-align: right;
+    }
+
+    /* Floating Image Preview on Hover */
+    .hover-preview {
+      position: fixed;
+      width: 400px;
+      height: 225px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 50;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+      transition: opacity 0.3s ease, transform 0.4s var(--ease-out-expo);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    }
+
+    .hover-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hover-preview.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    @media (max-width: 768px) {
+      .work-item { grid-template-columns: 1fr 2fr 1fr; }
+      .work-role { display: none; }
+    }
+
+    /* ==========================================================================
+       6. ABOUT & EXPERIENCE
+       ========================================================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-portrait {
+      position: sticky;
+      top: 15vh;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .about-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .about-text {
+      font-size: clamp(1.25rem, 2.5vw, 2rem);
+      line-height: 1.4;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
+
+    .about-text strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--fg);
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-portrait { position: relative; top: 0; max-height: 500px; }
+    }
+
+    /* ==========================================================================
+       7. PROCESS WORKFLOW
+       ========================================================================== */
+    .process-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .process-step {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      position: relative;
+    }
+
+    .process-num {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .process-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .process-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .process-container { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .process-container { grid-template-columns: 1fr; }
+    }
+
+    /* ==========================================================================
+       8. CLIENTS & AWARDS
+       ========================================================================== */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background-color: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .client-logo {
+      background-color: var(--bg);
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      transition: color 0.4s ease, background-color 0.4s ease;
+    }
+
+    .client-logo:hover {
+      color: var(--fg);
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    @media (max-width: 768px) {
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Awards Table */
+    .awards-list {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4rem;
+    }
+
+    .awards-list tr {
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s ease;
+    }
+
+    .awards-list tr:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    .awards-list td {
+      padding: 1.5rem 0;
+      font-size: 1rem;
+    }
+
+    .award-year { color: var(--muted); width: 15%; }
+    .award-name { font-family: var(--font-display); font-weight: 700; width: 45%; }
+    .award-project { color: var(--accent); width: 40%; text-align: right; }
+
+    /* ==========================================================================
+       9. TESTIMONIALS
+       ========================================================================== */
+    .testimonial-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 6vh 0;
+    }
+
+    .quote-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    .quote-author {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--fg);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .quote-role {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ==========================================================================
+       10. CONTACT / FOOTER
+       ========================================================================== */
+    .contact {
+      padding: 15vh 0 8vh;
+      text-align: center;
+      position: relative;
+    }
+
+    .contact-cta {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 12vw, 13rem);
+      font-weight: 800;
+      line-height: 0.85;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      text-decoration: none;
+      color: var(--fg);
+      display: inline-block;
+      position: relative;
+      transition: color 0.4s var(--ease-out-expo);
+      margin-bottom: 8vh;
+    }
+
+    .contact-cta::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+
+    .contact-cta:hover {
+      color: var(--accent);
+    }
+
+    .contact-cta:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 3rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .social-links a {
+      color: var(--fg);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      .footer-bar { flex-direction: column; gap: 1.5rem; text-align: center; }
+    }
+
+    /* ==========================================================================
+       11. ACCESSIBILITY & REDUCED MOTION
+       ========================================================================== */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .project-image-wrap { clip-path: none !important; }
+      .hero-title .line-inner { transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Floating Hover Preview for Selected Works -->
+  <div class="hover-preview" id="hover-preview">
+    <img src="" alt="Project Preview" id="preview-img">
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="#hero" class="logo-img interactive">
+      <img src="IMAGE/Logo Fi White.png" alt="Logo Fi" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work" class="interactive">Work</a></li>
+      <li><a href="#about" class="interactive">About</a></li>
+      <li><a href="#process" class="interactive">Process</a></li>
+      <li><a href="#contact" class="interactive">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero container" id="hero">
+    <div class="hero-bg-glow"></div>
+    
+    <h1 class="hero-title" aria-label="Visual Brand, Identity &, Designer">
+      <span><span class="line-inner">Hello</span></span>
+      <span><span class="line-inner">I am</span></span>
+      <span><span class="line-inner">Fi</span></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-statement">
+        Shaping timeless brands and digital experiences through bold identity design, 3D environments, and meticulous visual storytelling. Form, function, and uncompromising quality.
+      </p>
+      <div class="hero-meta">
+        <p>BASED IN BANDUNG / WORKING GLOBALLY</p>
+        <p style="color: var(--accent); margin-top: 0.25rem;">● AVAILABLE FOR COMMISSIONS</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Featured Projects Section -->
+    <section class="section container" id="work">
+      <div class="section-header">
+        <div>
+          <span class="sub-meta">01 / Featured Design</span>
+          <h2 class="section-title">Selected Works</h2>
+        </div>
+        <p style="color: var(--muted); font-size: 0.875rem;">2024 — 2026</p>
+      </div>
+
+      <div class="grid-12">
+        <!-- Project 1 -->
+        <article class="project-card col-span-8 interactive">
+          <a href="#contact" style="text-decoration:none; color:inherit;">
+            <div class="project-image-wrap">
+              <img src="IMAGE/Eloise.png" alt="Eloise" class="project-image">
+            </div>
+            <div class="project-details">
+              <h3 class="project-name">Eloise.</h3>
+              <span class="project-category">Brand Identity</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card col-span-4 col-start-9 interactive">
+          <a href="#contact" style="text-decoration:none; color:inherit;">
+            <div class="project-image-wrap portrait">
+              <img src="IMAGE/Castle (REPO).png" alt="Repo Castle" class="project-image">
+            </div>
+            <div class="project-details">
+              <h3 class="project-name">Repo Castle</h3>
+              <span class="project-category">3D Modelling</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card col-span-6 interactive">
+          <a href="#contact" style="text-decoration:none; color:inherit;">
+            <div class="project-image-wrap">
+              <img src="IMAGE/YT Banner Eloise.jpg" alt="Eloise's YouTube Banner" class="project-image">
+            </div>
+            <div class="project-details">
+              <h3 class="project-name">Eloise's YouTube Banner</h3>
+              <span class="project-category">Banner Design</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card col-span-5 col-start-8 interactive">
+          <a href="#contact" style="text-decoration:none; color:inherit;">
+            <div class="project-image-wrap portrait">
+              <img src="IMAGE/Cozy Brown Room.png" alt="Cozy Brown" class="project-image">
+            </div>
+            <div class="project-details">
+              <h3 class="project-name">Cozy Brown Room</h3>
+              <span class="project-category">3D Interior</span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Selected Works (Magazine Archive List) -->
+    <section class="section container">
+      <div class="section-header">
+        <div>
+          <span class="sub-meta">02 / Complete Archive</span>
+          <h2 class="section-title">Design Index</h2>
+        </div>
+      </div>
+
+      <div class="works-list">
+        <a href="#contact" class="work-item interactive" data-img="IMAGE/Thumbnail Lucy & Rebecca (Eloise Ch).jpg" alt="Guid Lucy & Rebecca">
+          <span class="work-num">05</span>
+          <span class="work-title">Thumbnail YouTube</span>
+          <span class="work-role">Social Media</span>
+          <span class="work-year">2026</span>
+        </a>
+        <a href="#contact" class="work-item interactive" data-img="IMAGE/Server Discord Banner.png" alt="Server DC Banner">
+          <span class="work-num">06</span>
+          <span class="work-title">Discord Sever Banner</span>
+          <span class="work-role">Banner</span>
+          <span class="work-year">2026</span>
+        </a>
+        <a href="#contact" class="work-item interactive" data-img="IMAGE/My OC Sword.png" alt="Sword">
+          <span class="work-num">07</span>
+          <span class="work-title">Katana</span>
+          <span class="work-role">3D</span>
+          <span class="work-year">2025</span>
+        </a>
+        <a href="#contact" class="work-item interactive" data-img="IMAGE/IG Eloise.jpg" alt="IG Eloise">
+          <span class="work-num">08</span>
+          <span class="work-title">Eloise</span>
+          <span class="work-role">Seocial Media Feed</span>
+          <span class="work-year">2026</span>
+        </a>
+        <a href="#contact" class="work-item interactive" data-img="IMAGE/A City.png" alt="City">
+          <span class="work-num">09</span>
+          <span class="work-title">City</span>
+          <span class="work-role">3D Environment</span>
+          <span class="work-year">2024</span>
+        </a>
+      </div>
+
+    <!-- About Section -->
+    <section class="section container" id="about">
+      <div class="section-header">
+        <span class="sub-meta">03 / Philosophy & Ethos</span>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-portrait">
+          <img src="IMAGE/Fi.JPG" alt="Kairo Vance Portrait">
+        </div>
+
+        <div class="about-content">
+          <p class="about-text">
+            I am a visual designer crafting <strong>bold brand identities, immersive 3D environments, and motion-driven digital experiences</strong>.
+            <br><br>
+            I believe that impactful design comes from eliminating the unnecessary. Whether sculpting immersive 3D environments in Blender, animating dynamic stream graphics, or crafting precision vector branding, every detail is intentionally engineered to give brands a timeless and undeniable presence.
+          </p>
+
+          <div class="stats-grid">
+            <div>
+              <div class="stat-num">1+</div>
+              <div class="stat-label">Junior</div>
+            </div>
+            <div>
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Independent & Direct</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Workflow Section -->
+    <section class="section container" id="process">
+      <div class="section-header">
+        <div>
+          <span class="sub-meta">04 / Methodological Precision</span>
+          <h2 class="section-title">The Workflow</h2>
+        </div>
+      </div>
+
+      <div class="process-container">
+        <div class="process-step">
+          <span class="process-num">01 / STRATEGY</span>
+          <h3 class="process-title">Discover & Research</h3>
+          <p class="process-desc">Understanding the project goals, target audience, and brand personality. I analyze the visual requirements to build a clear strategy before starting any creative work.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-num">02 / CONCEPT</span>
+          <h3 class="process-title">Exploration & Direction</h3>
+          <p class="process-desc">Developing moodboards, color palettes, and early sketches. I explore different visual directions, from flat design vectors to initial 3D lighting concepts to find the right style.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-num">03 / EXECUTION</span>
+          <h3 class="process-title">Crafting & Modelling</h3>
+          <p class="process-desc">Bringing the approved concept to life. I build the visual assets, construct Blender 3D environments, and animate motion graphics with close attention to detail and composition.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-num">04 / REFINEMENT</span>
+          <h3 class="process-title">Polish & Delivery</h3>
+          <p class="process-desc">Fine-tuning textures, animation timing, and visual balance. Once perfected, all deliverables are packaged and exported in high-resolution, production-ready formats.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="section container">
+      <div class="testimonial-wrapper">
+        <span class="sub-meta" style="margin-bottom: 3rem;">05 / Quote</span>
+        <blockquote class="quote-text">
+          "Design is the silent ambassador of your brand. It is not just what it looks like and feels like. Design is how it works."
+        </blockquote>
+        <div class="quote-author">Paul Rand</div>
+        <div class="quote-role">Pioneer of Modern Graphic & Logo Design</div>
+      </div>
+    </section>
+
+  <!-- Contact Section -->
+  <footer class="contact container" id="contact">
+    <span class="sub-meta">06 / Contact Me</span>
+    <a href="mailto:ahmadfirasm@gmail.com" class="contact-cta interactive">LET'S TALK</a>
+    
+    <div class="footer-bar">
+      <div class="copyright">© 2026 AHMAD FIRAS MUJTAHID. ALL RIGHTS RESERVED.</div>
+      <div class="social-links">
+        <a href="https://www.behance.net/gallery/219681109/Portfolio-Graphic-Design-2325" class="interactive">BEHANCE</a>
+        <a href="https://instagram.com/afiras_m" class="interactive">INSTAGRAM</a>
+        <a href="https://www.linkedin.com/in/ahmad-firas-mujtahid-115640397/" class="interactive">LINKEDIN</a>
+        <a href="IMAGE/CV Ahmad Firas Mujtahid (Creative).pdf" class="interactive">READ.CV</a>
+      </div>
+      <div>DESIGNED & ENGINEERED IN-HOUSE</div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       12. INTERACTION ENGINE (VANILLA JS)
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Initial Page Load Animation
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+      }, 100);
+
+      // 2. Custom Magnetic Cursor
+      const dot = document.getElementById('cursor-dot');
+      const ring = document.getElementById('cursor-ring');
+      let mouseX = 0, mouseY = 0;
+      let ringX = 0, ringY = 0;
+
+      // Check if user prefers reduced motion or touches device
+      const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (isFinePointer && !prefersReducedMotion) {
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          
+          // Instant follow for center dot
+          dot.style.top = `${mouseY}px`;
+          dot.style.left = `${mouseX}px`;
+        });
+
+        // Smooth physics loop for outer ring
+        const renderCursor = () => {
+          ringX += (mouseX - ringX) * 0.15;
+          ringY += (mouseY - ringY) * 0.15;
+          
+          ring.style.top = `${ringY}px`;
+          ring.style.left = `${ringX}px`;
+          
+          requestAnimationFrame(renderCursor);
+        };
+        requestAnimationFrame(renderCursor);
+
+        // Hover states for interactive elements
+        const interactives = document.querySelectorAll('.interactive, a, button');
+        interactives.forEach(el => {
+          el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+          el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+        });
+      } else {
+        dot.style.display = 'none';
+        ring.style.display = 'none';
+      }
+
+      // 3. Scroll-Triggered Reveal (Clip-Path & Fade)
+      const revealOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, revealOptions);
+
+      document.querySelectorAll('.project-card').forEach(el => {
+        revealObserver.observe(el);
+      });
+
+      // 4. Floating Hover Preview for Design Index (Selected Works)
+      const previewBox = document.getElementById('hover-preview');
+      const previewImg = document.getElementById('preview-img');
+      const workItems = document.querySelectorAll('.work-item');
+
+      if (isFinePointer && !prefersReducedMotion) {
+        workItems.forEach(item => {
+          item.addEventListener('mouseenter', (e) => {
+            const imgSrc = item.getAttribute('data-img');
+            if (imgSrc) {
+              previewImg.src = imgSrc;
+              previewBox.classList.add('active');
+            }
+          });
+
+          item.addEventListener('mouseleave', () => {
+            previewBox.classList.remove('active');
+          });
+
+          item.addEventListener('mousemove', (e) => {
+            // Position preview slightly offset from cursor
+            previewBox.style.top = `${e.clientY}px`;
+            previewBox.style.left = `${e.clientX + 200}px`;
+          });
+        });
+      }
+
+      // 5. Active Section Highlighting in Navigation
+      const sections = document.querySelectorAll('header[id], section[id], footer[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+
+      sections.forEach(sec => navObserver.observe(sec));
+    });
+  </script>
+</body>
+</html>
