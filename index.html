@@ -78,41 +78,16 @@
     }
 
     /* Custom Cursor */
-    @media (pointer: fine) {
-      body { cursor: none; }
-      a, button, .interactive { cursor: none; }
+    /* --- KURSOR ESTETIK & UNIVERSAL COMPATIBLE --- */
+
+    /* Mengubah kursor utama jadi bentuk crosshair/plus yang clean ala desainer */
+    body {
+        cursor: crosshair !important;
     }
 
-    .cursor-dot, .cursor-ring {
-      position: fixed;
-      top: 0;
-      left: 0;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 9999;
-      transition: opacity 0.3s ease, transform 0.15s var(--ease-out-expo);
-    }
-
-    .cursor-dot {
-      width: 6px;
-      height: 6px;
-      background-color: var(--accent);
-      border-radius: 50%;
-    }
-
-    .cursor-ring {
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(187, 224, 255, 0.4);
-      border-radius: 50%;
-      transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), background-color 0.4s var(--ease-out-expo), border-color 0.4s ease;
-    }
-
-    .cursor-hover .cursor-ring {
-      width: 70px;
-      height: 70px;
-      background-color: rgba(187, 224, 255, 0.08);
-      border-color: var(--accent);
+    /* Mengubah kursor jadi bentuk pointer (telunjuk) atau grab saat diarahkan ke link/tombol */
+    a, button, .interactive, .project-card, .work-item {
+        cursor: pointer !important;
     }
 
     /* Utility & Layout */
@@ -767,17 +742,29 @@
       .hero-title .line-inner { transform: none !important; }
     }
 
-        /* Tambahan CSS Responsif untuk HP */
-    @media (max-width: 768px) {
-        body, html {
-            overflow-x: hidden;
-            width: 100%;
+        /* --- CSS RESPONSIF MOBILE --- */
+        @media (max-width: 768px) {
+          /* Navigasi */
+          .nav {
+            background: rgba(8, 8, 8, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem var(--container-pad) !important;
+            mix-blend-mode: normal !important;
+          }
+          .logo-img { height: 40px !important; }
+          .nav-links { gap: 1.25rem !important; }
+          .nav-links a { font-size: 0.75rem !important; }
+          .hero { padding-top: 120px !important; }
+          
+          /* Grid */
+          .stats-grid, .process-container, .clients-grid, .about-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .col-span-12, .col-span-8, .col-span-6, .col-span-4 {
+            grid-column: span 12 !important;
+          }
         }
-        img, video {
-            max-width: 100%;
-            height: auto;
-        }
-    }
     
   </style>
 </head>
@@ -926,10 +913,10 @@
           <span class="work-role">Seocial Media Feed</span>
           <span class="work-year">2026</span>
         </a>
-        <a href="#contact" class="work-item interactive" data-img="IMAGE/A City.png" alt="City">
+        <a href="#contact" class="work-item interactive" data-img="IMAGE/Welplay.png" alt="Welplay">
           <span class="work-num">09</span>
-          <span class="work-title">City</span>
-          <span class="work-role">3D Environment</span>
+          <span class="work-title">Welplay</span>
+          <span class="work-role">Branding</span>
           <span class="work-year">2024</span>
         </a>
       </div>
