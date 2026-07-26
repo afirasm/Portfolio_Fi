@@ -695,14 +695,38 @@
     }
 
     .footer-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border);
-      padding-top: 3rem;
-      font-size: 0.875rem;
-      color: var(--muted);
-    }
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          align-items: center;
+          border-top: 1px solid var(--border);
+          padding-top: 3rem;
+          font-size: 0.875rem;
+          color: var(--muted);
+        }
+
+        /* Mengunci sosmed di kolom tengah */
+        .footer-bar .social-links {
+          display: flex;
+          gap: 2rem;
+          justify-content: center;
+          grid-column: 2;
+        }
+
+        /* Mengatur teks kiri agar posisinya aman dan tidak terlalu menempel ke ujung */
+        .footer-bar > div:first-child, 
+        .footer-bar > span:first-child, 
+        .footer-bar > p:first-child {
+          grid-column: 1;
+          text-align: left;
+        }
+
+        /* Mengatur teks kanan agar rata kanan */
+        .footer-bar > div:last-child, 
+        .footer-bar > span:last-child, 
+        .footer-bar > p:last-child {
+          grid-column: 3;
+          text-align: right;
+        }
 
     .social-links {
       display: flex;
@@ -742,29 +766,104 @@
       .hero-title .line-inner { transform: none !important; }
     }
 
-        /* --- CSS RESPONSIF MOBILE --- */
-        @media (max-width: 768px) {
-          /* Navigasi */
-          .nav {
-            background: rgba(8, 8, 8, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 1rem var(--container-pad) !important;
-            mix-blend-mode: normal !important;
-          }
-          .logo-img { height: 40px !important; }
-          .nav-links { gap: 1.25rem !important; }
-          .nav-links a { font-size: 0.75rem !important; }
-          .hero { padding-top: 120px !important; }
-          
-          /* Grid */
-          .stats-grid, .process-container, .clients-grid, .about-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .col-span-12, .col-span-8, .col-span-6, .col-span-4 {
-            grid-column: span 12 !important;
-          }
-        }
+    /* ==========================================================================
+      CSS RESPONSIF MENYELURUH UNTUK HP (MOBILE FIX)
+      ========================================================================== */
+    @media (max-width: 768px) {
+      /* 1. Mencegah elemen melebar/bocor ke samping yang bikin layar geser */
+      body, html {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* 2. Memastikan container mengikuti lebar layar HP dengan aman (tidak mepet) */
+      .container {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+      }
+
+      /* 3. Perbaikan Navbar Atas agar tidak tumpuk */
+      .nav {
+        background: rgba(8, 8, 8, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        padding: 1rem 1.25rem !important;
+        mix-blend-mode: normal !important;
+      }
+      .logo-img {
+        height: 35px !important;
+      }
+      .nav-links {
+        gap: 1rem !important;
+      }
+      .nav-links a {
+        font-size: 0.7rem !important;
+      }
+
+      /* 4. Menyesuaikan jarak Hero section agar turun di bawah navbar */
+      .hero {
+        min-height: 85vh !important;
+        padding-top: 100px !important;
+        padding-bottom: 4vh !important;
+      }
+
+      /* 5. Memaksa semua Grid / Galeri / Statistik berubah menjadi 1 kolom vertikal rapi */
+      .grid-12, 
+      .about-grid, 
+      .stats-grid, 
+      .process-container, 
+      .clients-grid, 
+      .works-list {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 1.5rem !important;
+      }
+
+      /* Memastikan kolom grid apapun menjadi lebar penuh (full-width) */
+      [class*="col-span-"] {
+        grid-column: span 12 !important;
+        width: 100% !important;
+      }
+
+      /* 6. Mengatur gambar, video, dan iframe agar fleksibel tidak keluar layar */
+      img, video, iframe {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      /* 7. Perbaikan Footer & Sosmed di HP (Pusat ke tengah & tidak mepet) */
+      .footer-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.25rem !important;
+        padding: 2rem 1.25rem !important;
+      }
+
+      .footer-bar .social-links {
+        order: 1 !important;
+        justify-content: center !important;
+        gap: 1.5rem !important;
+      }
+      
+      .footer-bar > div:first-child, 
+      .footer-bar > span:first-child, 
+      .footer-bar > p:first-child {
+        order: 2 !important;
+        text-align: center !important;
+      }
+
+      .footer-bar > div:last-child, 
+      .footer-bar > span:last-child, 
+      .footer-bar > p:last-child {
+        order: 3 !important;
+        text-align: center !important;
+      }
+    }
     
   </style>
 </head>
